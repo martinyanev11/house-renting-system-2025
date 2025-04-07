@@ -1,4 +1,4 @@
-using HouseRentingSystem.Web.Data;
+using HouseRentingSystem.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +11,9 @@ namespace HouseRentingSystem.Web
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             // Database
-            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            string connectionString = builder.Configuration
+                .GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
