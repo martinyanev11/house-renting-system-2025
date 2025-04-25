@@ -19,21 +19,11 @@ namespace HouseRentingSystem.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<House>()
-                .HasOne(h => h.Category)
-                .WithMany(c => c.Houses)
-                .HasForeignKey(h => h.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.Entity<House>()
-               .HasOne(h => h.Agent)
-               .WithMany(a => a.ManagedHouses)
-               .HasForeignKey(h => h.AgentId)
-               .OnDelete(DeleteBehavior.Restrict);
-
             // Applying configurations
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new AgentConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new HouseConfiguration());
 
             base.OnModelCreating(builder); // Is needed
         }

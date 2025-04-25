@@ -9,6 +9,7 @@
         {
             Id = Guid.NewGuid();
             ManagedHouses = new List<House>();
+            IsDeleted = false;
         }
 
         [Key]
@@ -22,5 +23,7 @@
         public IdentityUser User { get; set; } = null!;
 
         public IEnumerable<House> ManagedHouses { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

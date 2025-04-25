@@ -1,6 +1,7 @@
 ﻿namespace HouseRentingSystem.Data.Seeding
 {
     using HouseRentingSystem.Data.Models;
+    using static HouseRentingSystem.Data.Seeding.Constants.Constants;
 
     public class AgentSeeder
     {
@@ -10,9 +11,9 @@
             {
                 new Agent()
                 {
-                    Id = Guid.Parse("44a41a1c-943b-47e2-80e6-47463b6f139b"),
-                    PhoneNumber = "+359888888888",
-                    UserId = "dea12856-c198-4129-b3f3-b893d8395082"
+                    Id = Guid.Parse(AgentConstants.Id),
+                    PhoneNumber = AgentConstants.PhoneNumber,
+                    UserId = UserConstants.AgentId
                 }
             };
 

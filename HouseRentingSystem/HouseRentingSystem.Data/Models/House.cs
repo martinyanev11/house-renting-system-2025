@@ -7,6 +7,20 @@
 
     public class House
     {
+        public House()
+        {
+            IsDeleted = false;
+        }
+        public House(int id, string title, string address, string description, string imageUrl, decimal Price)
+        {
+            Id = id;
+            Title = title;
+            Address = address;
+            Description = description;
+            ImageUrl = imageUrl;
+            PricePerMonth = Price;
+        }
+
         [Key]
         public int Id { get; init; }
 
@@ -35,5 +49,7 @@
 
         public string? RenterId { get; set; }
         public IdentityUser? Renter { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

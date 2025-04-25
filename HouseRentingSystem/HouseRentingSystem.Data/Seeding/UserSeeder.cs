@@ -1,30 +1,31 @@
 ﻿namespace HouseRentingSystem.Data.Seeding
 {
     using Microsoft.AspNetCore.Identity;
+    using static HouseRentingSystem.Data.Seeding.Constants.Constants;
 
     public class UserSeeder
     {
         public static IEnumerable<IdentityUser> SeedUsers()
         {
-            string defaultPassword = "user123";
-
             List<IdentityUser> users = new List<IdentityUser>()
             {
                 new IdentityUser()
                 {
-                    Id = "dea12856-c198-4129-b3f3-b893d8395082",
-                    UserName = "agent@mail.com",
-                    NormalizedUserName = "agent@mail.com",
-                    Email = "agent@mail.com",
-                    NormalizedEmail = "agent@mail.com"
+                    Id = UserConstants.AgentId,
+                    UserName = UserConstants.AgentEmail,
+                    NormalizedUserName = UserConstants.AgentEmail.ToUpper(),
+                    Email = UserConstants.AgentEmail,
+                    NormalizedEmail = UserConstants.AgentEmail.ToUpper(),
+                    ConcurrencyStamp = UserConstants.AgentConcurrencyStamp,
                 },
                 new IdentityUser()
                 {
-                    Id = "6d5800ce-d726-4fc8-83d9-d6b3ac1f591e",
-                    UserName = "guest@mail.com",
-                    NormalizedUserName = "guest@mail.com",
-                    Email = "guest@mail.com",
-                    NormalizedEmail = "guest@mail.com"
+                    Id = UserConstants.GuestId,
+                    UserName = UserConstants.GuestEmail,
+                    NormalizedUserName = UserConstants.GuestEmail.ToUpper(),
+                    Email = UserConstants.GuestEmail,
+                    NormalizedEmail = UserConstants.GuestEmail.ToUpper(),
+                    ConcurrencyStamp = UserConstants.GuestConcurrencyStamp,
                 }
             };
 
@@ -32,7 +33,7 @@
 
             foreach (var user in users)
             {
-                user.PasswordHash = hasher.HashPassword(user, defaultPassword);
+                user.PasswordHash = hasher.HashPassword(user, UserConstants.Password);
             }
 
             return users;
