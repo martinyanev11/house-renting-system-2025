@@ -41,7 +41,7 @@
             public const string BigHouseMarinaName = "Big House Marina";
             public const string BigHouseMarinaAddress = "North London, UK (near the border";
             public const string BigHouseMarinaDescription = "A big house for your whole family. Don't miss to buy a house with three bedrooms.";
-            public const string BigHouseMarinaImageUrl = "https://www.luxury-architecture.net/wp-content/uploads/2017/12/1513217889-7597-FAIRWAYS-010.jpg";
+            public const string BigHouseMarinaImageUrl = "https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg";
             public const decimal BigHouseMarinaPricePerMonth = 2100.00M;
 
             public const int FamilyHouseComfortId = 2;
