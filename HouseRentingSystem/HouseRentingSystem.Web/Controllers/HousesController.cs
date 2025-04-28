@@ -1,6 +1,7 @@
 ﻿namespace HouseRentingSystem.Web.Controllers
 {
     using HouseRentingSystem.Data;
+    using HouseRentingSystem.Data.Models;
     using HouseRentingSystem.Web.Models.Houses;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
@@ -31,9 +32,22 @@
             return View(model);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            HouseDetailsViewModel model = Common.GetHouses().First();
+            House? house = _dbContext.Houses.FirstOrDefault(h => h.Id == id);
+
+            if (house is null)
+            {
+                return RedirectToAction("All");
+            }
+
+            HouseDetailsViewModel model = new HouseDetailsViewModel()
+            {
+                Title = house.Title,
+                Address = house.Address,
+                ImageUrl = house.ImageUrl,
+            };
+
             return View(model);
         }
 
